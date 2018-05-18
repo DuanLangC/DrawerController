@@ -1095,7 +1095,7 @@ extension DrawerController: UIGestureRecognizerDelegate {
 
             v.layer.position.x = originalX + translationX > (w / 2) ? (w / 2) : originalX + translationX
 
-            let a = 1 - v.layer.position.x / v.bounds.width
+            let a = 1 - (v.layer.position.x + (w/2)) / v.bounds.width
             rootViewController.view.alpha = 0.5 < a && v.layer.position.x <= v.bounds.width / 2 ? a : 0.5
 
             if translationX >= leftThreshold {
@@ -1152,7 +1152,7 @@ extension DrawerController: UIGestureRecognizerDelegate {
 
             v.layer.position.x = originalX + translationX < view.bounds.width - (w / 2) ? view.bounds.width - (w / 2) : originalX + translationX
 
-            let a = 1 - (view.bounds.width - v.layer.position.x) / v.bounds.width
+            let a = 1 -  (originalX - v.layer.position.x) / v.bounds.width
             rootViewController.view.alpha = 0.5 < a && v.layer.position.x >= v.bounds.width / 2 ? a : 0.5
 
             if translationX <= -rightThreshold {

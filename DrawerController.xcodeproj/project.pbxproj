@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C012F9520AF093100147E54 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012F9320AF093100147E54 /* DrawerController.swift */; };
+		4C012F9620AF093100147E54 /* TransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C012F9420AF093100147E54 /* TransitionController.swift */; };
 		4CA2DFE420A8CAFA00D3DE7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA2DFE320A8CAFA00D3DE7C /* AppDelegate.swift */; };
 		4CA2DFE620A8CAFA00D3DE7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA2DFE520A8CAFA00D3DE7C /* ViewController.swift */; };
 		4CA2DFE920A8CAFA00D3DE7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA2DFE720A8CAFA00D3DE7C /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C012F9320AF093100147E54 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
+		4C012F9420AF093100147E54 /* TransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionController.swift; sourceTree = "<group>"; };
 		4CA2DFE020A8CAFA00D3DE7C /* DrawerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA2DFE320A8CAFA00D3DE7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CA2DFE520A8CAFA00D3DE7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		4CA2DFF520A8CB0100D3DE7C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4C012F9320AF093100147E54 /* DrawerController.swift */,
+				4C012F9420AF093100147E54 /* TransitionController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -143,8 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C012F9620AF093100147E54 /* TransitionController.swift in Sources */,
 				4CA2DFE620A8CAFA00D3DE7C /* ViewController.swift in Sources */,
 				4CA2DFE420A8CAFA00D3DE7C /* AppDelegate.swift in Sources */,
+				4C012F9520AF093100147E54 /* DrawerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
