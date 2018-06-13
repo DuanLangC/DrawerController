@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ELDrawerController"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "A NavigationDrawer slides in from the left or right "
   s.homepage     = "https://github.com/DuanLangC/DrawerController"
   s.license      = "MIT"
