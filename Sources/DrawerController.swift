@@ -56,6 +56,11 @@ public protocol DrawerControllerDelegate: class{
      An optional delegation method that is fired when the status bar is about to change display, isHidden or not.
      */
     func drawerController(drawerController: DrawerController, statusBar isHidden: Bool)
+    
+    /**
+     An optional delegation method that controls whether the pan gesture will be received when opening
+    */
+    func drawerController(drawerController: DrawerController, shouldReceive pan: UIPanGestureRecognizer, didOpen position: DrawerPosition) -> Bool
 }
 
 extension DrawerControllerDelegate{
@@ -84,6 +89,9 @@ extension DrawerControllerDelegate{
     }
 
     func drawerController(drawerController: DrawerController, statusBar isHidden: Bool) {
+    }
+    func drawerController(drawerController: DrawerController, shouldReceive pan: UIPanGestureRecognizer, didOpen position: DrawerPosition) -> Bool{
+        return true
     }
 }
 
@@ -1044,6 +1052,13 @@ extension DrawerController: UIGestureRecognizerDelegate {
      - Returns: A Boolean of whether to continue the gesture or not.
      */
     open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        if (isLeftViewOpened || isRightViewOpened) && (gestureRecognizer == leftPanGesture || gestureRecognizer == rightPanGesture){
+            if let delegate = delegate{
+                return delegate.drawerController(drawerController: self, shouldReceive: gestureRecognizer as! UIPanGestureRecognizer, didOpen: isLeftViewOpened ? DrawerPosition.left : DrawerPosition.right)
+            }
+        }
+        
         if !isRightViewOpened && gestureRecognizer == leftPanGesture && (isLeftViewOpened || isPointContainedWithinLeftThreshold(point: touch.location(in: view))) {
             return true
         }
