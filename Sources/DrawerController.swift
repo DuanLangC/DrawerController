@@ -1052,7 +1052,6 @@ extension DrawerController: UIGestureRecognizerDelegate {
      - Returns: A Boolean of whether to continue the gesture or not.
      */
     open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-    
         if !isRightViewOpened && gestureRecognizer == leftPanGesture && (isLeftViewOpened || isPointContainedWithinLeftThreshold(point: touch.location(in: view))) {
             if isLeftViewOpened {
                 if let delegate = delegate {
