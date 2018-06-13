@@ -60,7 +60,7 @@ public protocol DrawerControllerDelegate: class{
     /**
      An optional delegation method that controls whether the pan gesture will be received when opening
     */
-    func drawerController(drawerController: DrawerController, shouldReceive pan: UIPanGestureRecognizer, didOpen position: DrawerPosition) -> Bool
+    func drawerController(drawerController: DrawerController, shouldReceive pan: UIPanGestureRecognizer, touch: UITouch, position: DrawerPosition) -> Bool
 }
 
 extension DrawerControllerDelegate{
@@ -90,7 +90,7 @@ extension DrawerControllerDelegate{
 
     func drawerController(drawerController: DrawerController, statusBar isHidden: Bool) {
     }
-    func drawerController(drawerController: DrawerController, shouldReceive pan: UIPanGestureRecognizer, didOpen position: DrawerPosition) -> Bool{
+    func drawerController(drawerController: DrawerController, shouldReceive pan: UIPanGestureRecognizer, touch: UITouch, position: DrawerPosition) -> Bool{
         return true
     }
 }
@@ -1055,7 +1055,7 @@ extension DrawerController: UIGestureRecognizerDelegate {
         
         if (isLeftViewOpened || isRightViewOpened) && (gestureRecognizer == leftPanGesture || gestureRecognizer == rightPanGesture){
             if let delegate = delegate{
-                return delegate.drawerController(drawerController: self, shouldReceive: gestureRecognizer as! UIPanGestureRecognizer, didOpen: isLeftViewOpened ? DrawerPosition.left : DrawerPosition.right)
+                return delegate.drawerController(drawerController: self, shouldReceive: gestureRecognizer as! UIPanGestureRecognizer, touch: touch, position: isLeftViewOpened ? DrawerPosition.left : DrawerPosition.right)
             }
         }
         
