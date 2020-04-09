@@ -43,7 +43,7 @@ open class TransitionController: UIViewController {
     }
 
     /// A reference to the container view.
-    open let container = UIView()
+    public let container = UIView()
 
     /**
      A UIViewController property that references the active
@@ -181,9 +181,9 @@ internal extension TransitionController {
      passed in controller view within the view hierarchy.
      */
     func prepare(viewController: UIViewController, in container: UIView) {
-        addChildViewController(viewController)
+        addChild(viewController)
         container.addSubview(viewController.view)
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
         viewController.view.frame = container.bounds
         viewController.view.clipsToBounds = true
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -197,8 +197,8 @@ internal extension TransitionController {
      - Parameter at index: An Int for the view controller position.
      */
     func removeViewController(viewController: UIViewController) {
-        viewController.willMove(toParentViewController: nil)
+        viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
-        viewController.removeFromParentViewController()
+        viewController.removeFromParent()
     }
 }

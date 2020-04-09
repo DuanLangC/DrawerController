@@ -849,7 +849,7 @@ open class DrawerController : TransitionController{
     fileprivate func showStatusBar() {
         DispatchQueue.main.async(execute: {[weak self] in
             if let window = UIApplication.shared.keyWindow {
-                window.windowLevel = UIWindowLevelNormal
+                window.windowLevel = UIWindow.Level.normal
             }
 
             guard let `self` = self else {
@@ -867,7 +867,7 @@ open class DrawerController : TransitionController{
 
         DispatchQueue.main.async(execute: {[weak self] in
             if let window = UIApplication.shared.keyWindow {
-                window.windowLevel = UIWindowLevelStatusBar + 1
+                window.windowLevel = UIWindow.Level.statusBar + 1
             }
 
             guard let `self` = self else {
@@ -949,7 +949,7 @@ extension DrawerController {
     fileprivate func prepareContentViewController() {
         contentViewController.view.backgroundColor = .black
         prepare(viewController: contentViewController, in: view)
-        view.sendSubview(toBack: contentViewController.view)
+        view.sendSubviewToBack(contentViewController.view)
     }
 
     /// A method that prepares the leftView.
